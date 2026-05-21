@@ -21,7 +21,7 @@ It looked 100% correct, yet the REST API stubbornly rejected our authentication 
 
 Here is what I uncovered:
 1️⃣ WordPress strips spaces: During authentication, the WP engine automatically sanitizes the password by stripping all non-alphanumeric characters using a regular expression: preg_replace('/[^a-z\d]/i', '', $password). This meant that passing spaces in our code wasn't the issue.
-2️⃣ The Visual Ambiguity Trap (Typo Bug!): In the third block of the password (H1PQ), the character that looked exactly like the digit 1 (one) in the UI text box was actually a lowercase „l” (as in L). After running an automated PHP check testing 81 visual permutations of ambiguous characters, the AI successfully found the valid password: 2Znz WnUU HlPQ sZd6 L2DI jhmG.
+2️⃣ The Visual Ambiguity Trap (Typo Bug!): In the third block of the password (H1PQ), the character that looked exactly like the digit 1 (one) in the UI text box was actually a lowercase "l" (as in L). After running an automated PHP check testing 81 visual permutations of ambiguous characters, the AI successfully found the valid password: 2Znz WnUU HlPQ sZd6 L2DI jhmG.
 
 🎉 Success! With the corrected credentials, our Node.js script connected instantly and programmatically generated a beautifully styled custom HTML page in a fraction of a second.
 
