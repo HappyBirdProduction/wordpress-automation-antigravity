@@ -1,6 +1,6 @@
 # 🌌 Automating WordPress REST API with Antigravity 2.0
 
-This repository contains a comprehensive tutorial and a verified Node.js script demonstrating how to integrate the **Antigravity 2.0** AI agent with WordPress using the native REST API and Application Passwords.
+This repository contains a comprehensive tutorial and a verified Node.js script demonstrating how to integrate an AI agent (such as **Antigravity 2.0**) with WordPress using the native REST API and Application Passwords.
 
 ---
 
@@ -40,22 +40,41 @@ What are your thoughts on this level of automation? Do you use the REST API to m
 
 ---
 
-## 🛠️ Technical Documentation
+## 🛠️ Technical Documentation & Customization
 
-### Connection Setup
-* **User:** `rradmin`
-* **Application Password:** `2Znz WnUU HlPQ sZd6 L2DI jhmG` (visually corrected)
-* **REST API Endpoint:** `https://responserecruitment.local/wp-json/wp/v2/pages`
+### 1. Generating Application Passwords in WordPress
+Before running the script, you must generate an Application Password in your WordPress admin panel:
+1. Log in to your WordPress dashboard.
+2. Navigate to **Users** -> **Profile** (or **All Users** and edit your target user).
+3. Scroll down to the **Application Passwords** section.
+4. Enter an application name (e.g., `Antigravity`) and click **Add New Application Password**.
+5. Copy the generated 24-character password (e.g., `xxxx xxxx xxxx xxxx xxxx xxxx`). **Keep it safe; you will not be able to see it again!**
 
-### Test Script (`test_wp_api.js`)
+---
+
+### 2. Configuration Setup
+Open `test_wp_api.js` and customize the configuration block at the top of the file:
+
+```javascript
+const username = 'YOUR_WORDPRESS_USERNAME'; // e.g., 'admin'
+const appPassword = 'YOUR_APPLICATION_PASSWORD'; // e.g., 'xxxx xxxx xxxx xxxx xxxx xxxx'
+const endpoint = 'https://your-wordpress-site.local/wp-json/wp/v2/pages';
+```
+
+---
+
+### 3. Test Script (`test_wp_api.js`)
 The test script automatically creates a new page in WordPress with published status and a personalized responsive HTML block.
 
 To run the script:
-```bash
-node test_wp_api.js
-```
-
-The source code can be found in the [test_wp_api.js](./test_wp_api.js) file.
+1. Initialize a Node.js project (if not already done):
+   ```bash
+   npm init -y
+   ```
+2. Run the script:
+   ```bash
+   node test_wp_api.js
+   ```
 
 ---
 
